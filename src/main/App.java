@@ -10,19 +10,43 @@ public class App {
             return 0;
         }
         public static int maior(int[] arrayDesordenado){            
-            int maior= arrayDesordenado[0];
+            int maiornumero= arrayDesordenado[0];
             
             for (int i=0;i<arrayDesordenado.length;i++){
                 
-                if(arrayDesordenado[i]>= maior){
+                if(arrayDesordenado[i]>= maiornumero){
                     
-                    maior = arrayDesordenado[i];
+                    maiornumero = arrayDesordenado[i];
                     
                 }
             }
-            return maior;
-        }  
+            return maiornumero;
+        }
+        
+        public static Integer[][] ParMaisProximo(Integer[][] pares) {
+            Integer[][] PontoMaisPerto = new Integer[2][2];
+            double menorcaminho = Double.MAX_VALUE;
+             
+            for (int i = 0; i < pares.length; i++) {
+                
+                for (int j = i + 1; j < pares.length; j++) {
+                    double caminho = Math.sqrt(Math.pow(pares[i][0] - pares[j][0], 2) + Math.pow(pares[i][1] - pares[j][1], 2));
+                    
+                    if (menorcaminho>caminho){
+                        
+                        menorcaminho = caminho;
+                        PontoMaisPerto[0] = pares[i];
+                        PontoMaisPerto[1] = pares[j];
+                    }
+                }
+            }
+        
+            return PontoMaisPerto;
+        }
+        
     }
+
+    
 
 
         
